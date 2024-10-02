@@ -1,8 +1,8 @@
 [package]
 name = "solana-nostd-secp256k1-recover"
 authors = ["Dean Little <@deanmlittle>"]
-description = "A more efficient implementation of Blake3 for SVM"
-version = "0.1.0"
+description = "A more efficient implementation of Secp256k1 Recover for SVM"
+version = "0.1.1"
 edition = "2021"
 license = "MIT"
 

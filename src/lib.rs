@@ -2,7 +2,8 @@ use core::mem::MaybeUninit;
 #[cfg(not(target_os = "solana"))]
 use k256::elliptic_curve::sec1::ToEncodedPoint;
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[repr(u32)]
 pub enum Secp256k1RecoverError {
     SignatureError,
     HashError,
@@ -110,7 +111,7 @@ pub fn secp256k1_recover_unchecked(
     is_odd: bool,
     signature: &[u8; 64],
 ) -> [u8; 64] {
-    secp256k1_recover(hash, is_odd, signature).unwrap()
+    unsafe { secp256k1_recover(hash, is_odd, signature).unwrap_unchecked() }
 }
 
 #[cfg(test)]
