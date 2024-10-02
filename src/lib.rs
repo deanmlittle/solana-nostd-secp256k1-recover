@@ -111,7 +111,7 @@ pub fn secp256k1_recover_unchecked(
     is_odd: bool,
     signature: &[u8; 64],
 ) -> [u8; 64] {
-    unsafe { secp256k1_recover(hash, is_odd, signature).unwrap_unchecked() }
+    secp256k1_recover(hash, is_odd, signature).unwrap()
 }
 
 #[cfg(test)]
