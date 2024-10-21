@@ -1,8 +1,8 @@
 [package]
-name = "solana-nostd-big-mod-exp"
+name = "solana-nostd-secp256k1-recover"
 authors = ["Dean Little <@deanmlittle>"]
-description = "A more efficient implementation of Big Mod Exp for SVM"
-version = "0.1.0"
+description = "A more efficient implementation of Secp256k1 Recover for SVM"
+version = "0.1.1"
 edition = "2021"
 license = "MIT"
 
@@ -10,7 +10,7 @@ license = "MIT"
 crate-type = ["cdylib", "lib"]
 
 [dependencies]
-dashu = { version = "0.4.2", optional = true }
+k256 = { version = "0.10.4", default-features = false, features = ["ecdsa"], optional = true }
 
 [target.'cfg(not(target_os = "solana"))'.dependencies]
-dashu = { version = "0.4.2" }
+k256 = { version = "0.10.4", default-features = false, features = ["ecdsa"] }
